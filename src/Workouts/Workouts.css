@@ -1,0 +1,25 @@
+.workouts{
+    flex: .8;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.workouts > h1{
+    text-align: center;
+}
+
+.workoutsCardsContainer{
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.workoutsCardsContainer::-webkit-scrollbar{
+    display: none;
+}

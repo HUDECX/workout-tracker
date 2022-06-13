@@ -1,0 +1,22 @@
+.workouts__card{
+    margin: 1rem;
+    background-color: var(--background-color-light)!important;
+    filter: drop-shadow(0 0 10px black);
+    color: white!important;
+    max-height: 350px!important;
+}
+
+.workouts__card ul{
+    padding: 0;
+    list-style: none;
+}
+
+.workouts__card li{
+    margin-bottom: .6rem;
+}
+
+.workoutCard__dbText{
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    padding: .2rem .4rem;
+}
