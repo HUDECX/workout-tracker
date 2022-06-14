@@ -1,0 +1,54 @@
+.createWorkout{
+    flex: .8;
+    display: flex;
+    flex-direction: column;
+}
+
+.createWorkout > h1{
+    text-align: center;
+}
+
+.createWorkout__form{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    flex: 1;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.createWorkout__form::-webkit-scrollbar{
+    display: none;
+}
+
+.formSection__header{
+    font-size: 2rem!important;
+    color: #333!important;
+}
+
+.table{
+    margin-top: 2rem;
+    background-color: var(--background-color-light);
+    color: white;
+    border-radius: 1rem;
+    filter: drop-shadow(0 0 10px black);
+}
+
+.table th, td{
+    width: 33%;
+}
+
+.formFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.addExerciseBtn{
+    width: 10rem;
+}
+
+#createWorkoutBtn{
+    width: 15rem;
+}
+

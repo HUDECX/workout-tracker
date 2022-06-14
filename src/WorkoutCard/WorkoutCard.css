@@ -4,6 +4,7 @@
     filter: drop-shadow(0 0 10px black);
     color: white!important;
     max-height: 350px!important;
+    border-radius: 1rem!important;
 }
 
 .workouts__card ul{

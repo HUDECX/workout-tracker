@@ -4,6 +4,9 @@
     min-width: 7rem;
     text-align: center;
     padding-top: 2rem;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
 }
 
 .navbar a{
@@ -13,7 +16,7 @@
     border-radius: 2rem;
     transition: .1s background-color ease-in-out;
 }
-.navbar a:hover{
+.navbar li > a:hover{
     background-color: var(--accent-color);
 }
 
@@ -23,7 +26,6 @@
 }
 
 .navbar > ul{
-    margin: 3rem 0;
     text-decoration: none;
     list-style: none;
     padding: 0;
