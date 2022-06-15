@@ -30,7 +30,7 @@ export default function CreateWorkout() {
 
           {/* form footer with buttons  */}
           <div className="formFooter">
-            <Button color='success' type='submit' id='createWorkoutBtn' variant="outlined">Create workout</Button>
+            {/* <Button color='success' type='submit' id='createWorkoutBtn' variant="contained">Create workout</Button> */}
             <Button className='addExerciseBtn' variant="outlined" onClick={addComponentTable}>Add exercise</Button>
           </div>
         </form>
