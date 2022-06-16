@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { TextField } from '@mui/material'
 
-import db from "../../firebase";
-import { doc, setDoc } from "firebase/firestore"; 
+
 
 import { Button, Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
-import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -25,14 +23,18 @@ class tableRowData{   // table row class
 
 
 
-export default function ExerciseTable() {
+export default function ExerciseTable({updateWorkout}) {
   
   const [tableData,setTableData] = useState([
     new tableRowData(0,0,0,0)   // initialize first row, others can be added later
   ]);
   
   const [currentRow,setCurrentRow] = useState(1);
-  const [numberOfRows, setNumberOfRows] = useState([0])
+  const [numberOfRows, setNumberOfRows] = useState([0]);
+
+  useEffect(() => {
+    updateWorkout(tableData);
+  },[tableData])
   
 
   function handleChange(e,type,i){    //after adding a row it sets the value that was changed
@@ -52,7 +54,6 @@ export default function ExerciseTable() {
         break;
     }
     setTableData(arr)
-    console.log(tableData);
   }
 
 
@@ -62,7 +63,6 @@ export default function ExerciseTable() {
 
     setNumberOfRows(prev => [...prev,currentRow]);    //adds a new row
     setCurrentRow(prev => +prev+1); // changes to currently added row ID
-    console.log(numberOfRows);
   }
 
 
