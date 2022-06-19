@@ -4,7 +4,7 @@ import { TextField } from '@mui/material'
 
 
 
-import { Button, Fab } from '@mui/material';
+import { Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 
@@ -23,31 +23,41 @@ class tableRowData{   // table row class
 
 
 
-export default function ExerciseTable({updateWorkout}) {
+export default function ExerciseTable({updateWorkout,id}) {
   
   const [tableData,setTableData] = useState([
     new tableRowData(0,0,0,0)   // initialize first row, others can be added later
   ]);
+
   
   const [currentRow,setCurrentRow] = useState(1);
   const [numberOfRows, setNumberOfRows] = useState([0]);
+  const [exerciseName,setExerciseName] = useState("");
 
   useEffect(() => {
-    updateWorkout(tableData);
-  },[tableData])
+
+    // if the table data / name of that table was updated it sends that update to CreateWorkout.jsx
+
+    let arr = {   
+      id: id,
+      name: exerciseName,
+      exercise: tableData
+    }
+    updateWorkout(arr);
+  },[tableData,exerciseName])
   
 
-  function handleChange(e,type,i){    //after adding a row it sets the value that was changed
+  function handleChange(e,type,row){    //after adding a row it sets the value that was changed
     let arr = [...tableData];
     switch (type) {     
       case "set":
-        arr[i].numberOfSets = e.target.value;
+        arr[row].numberOfSets = e.target.value;
         break;
       case "weight":
-        arr[i].weight = e.target.value;
+        arr[row].weight = e.target.value;
         break;
       case "rep":
-        arr[i].numberOfReps = e.target.value;
+        arr[row].numberOfReps = e.target.value;
         break;
     
       default:
@@ -71,7 +81,7 @@ export default function ExerciseTable({updateWorkout}) {
       <table class="table">
         <thead>
           <tr>
-            <th colSpan={3} scope="col" style={{border:"none"}}><TextField id="standard-basic" label="Name of your exercise" variant="standard" /></th>
+            <th colSpan={3} scope="col" style={{border:"none"}}><TextField id="standard-basic" label="Name of your exercise" variant="standard" value={exerciseName} onChange={e => setExerciseName(e.target.value)}/></th>
           </tr>
           <tr>
             <th scope="col">Enter number of sets </th>
@@ -80,6 +90,7 @@ export default function ExerciseTable({updateWorkout}) {
           </tr>
         </thead>
         <tbody>
+          {/* loops through how many rows we should have and creates them */}
           {numberOfRows.map(row => 
             <tr>
               <td style={{border:"none"}}><TextField value={tableData[row].numberOfSets} onChange={(e) => handleChange(e,"set",row)} sx={{maxWidth: 75}} id="standard-basic" label="Sets" variant="filled" type="number" /></td>

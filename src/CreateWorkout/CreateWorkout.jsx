@@ -3,7 +3,6 @@ import SelectInput from './components/SelectInput';
 import "./CreateWorkout.css";
 import ExerciseTable from "./components/ExerciseTable";
 import { Button } from '@mui/material';
-import { SettingsInputComponentSharp } from '@mui/icons-material';
 
 import db from "../firebase";
 import { doc, setDoc } from "firebase/firestore"; 
@@ -18,28 +17,45 @@ export default function CreateWorkout() {
   const [exerciseData, setExerciseData] = useState([]);
   const [muscleGroup, setMuscleGroup] = useState("");
 
-  function addDataToFirebase(){
-    let arr = exerciseData.map(row => {
+  function addDataToFirebase(){   //function for adding data to firebase/firestore
+    
+    //first creates a modified(but exact copy) of exerciseData array so it can be uploaded to firebase
+    
+    let modifiedArrayForFirebase = exerciseData.map(table => {    //loops through raw exercise data
       return ({
-        weight: row.weight,
-        id: row.rowId,
-        sets: row.numberOfSets,
-        reps: row.numberOfReps
+        id: table.id,
+        name: table.name,
+        exercise: table.exercise.map(row => { //here it loops through each row in its exercises table
+          return ({
+                weight: row.weight,
+                id: row.rowId,
+                sets: row.numberOfSets,
+                reps: row.numberOfReps
+              })
+        })
       })
     })
 
 
-    setDoc(doc(db, "workouts", uuidv4()), {
+    setDoc(doc(db, "workouts", uuidv4()), {   // uploads to firestore
       muscleGroup: muscleGroup,
-      exercises: [{
-        table: arr
-      }]
+      exercises: modifiedArrayForFirebase
     })
-    console.log(exerciseData);
   }
 
-  function updateExerciseData(data,i){
-    setExerciseData(data);
+  function updateExerciseData(data){
+
+    let arr = exerciseData;
+
+    let index = arr.findIndex(table => table.id === data.id);   // searches if the exercise already exists and has an Id
+
+    if(index !== -1){
+      arr[index] = data;     //if it exists it just modifies data in that exercise that was updated
+    }else{
+      arr = [...arr,data];  // if it doesnt have id - it doesnt exist, it creates new exercise in that array
+    }
+
+    setExerciseData(arr);
   }
 
   function updateMuscleGroup(data){
@@ -47,7 +63,7 @@ export default function CreateWorkout() {
   }
 
   function addComponentTable(){
-    setNumberOfTables([...numberOfTables,"sample component table"])   // add new table
+    setNumberOfTables([...numberOfTables,"sample component table"])   // add new table - with just sample text that is not meaningful
   };
 
 
@@ -59,7 +75,7 @@ export default function CreateWorkout() {
           <SelectInput updateMuscleGroup={updateMuscleGroup}/>
 
           {/* map through tables */}
-          {numberOfTables.map(table => <ExerciseTable updateWorkout={updateExerciseData}/>)}    
+          {numberOfTables.map((table,i) => <ExerciseTable updateWorkout={updateExerciseData} id={i}/>)}    
 
           {/* form footer with buttons  */}
           <div className="formFooter">
