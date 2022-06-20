@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "./SelectInput.css"
 
 import { FormControl, InputLabel, Select, MenuItem} from '@mui/material';
 
@@ -15,9 +16,10 @@ export default function SelectInput({updateMuscleGroup}) {
 
   return (
     <div className="select_input">
-          <FormControl sx={{minWidth: 220}}>
+          <FormControl className='selectMuscleGroup' sx={{minWidth: 200}}>
             <InputLabel id="demo-simple-select-label">Select muscle group</InputLabel>
             <Select
+              required
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               label="Select muscle group"

@@ -2,6 +2,7 @@
     flex: .8;
     display: flex;
     flex-direction: column;
+    padding-top: 2rem;
 }
 
 .createWorkout > h1{
@@ -29,26 +30,109 @@
 
 .table{
     margin-top: 2rem;
-    background-color: var(--background-color-light);
+    background-color: var(--background-transparent);
     color: white;
-    border-radius: 1rem;
     filter: drop-shadow(0 0 10px black);
+    border-radius: 2rem;
 }
 
 .table th, td{
     width: 33%;
+    border: none;
+}
+
+.table td{
+    border: 1px dotted var(--accent-color);
+}
+
+
+.table tr{
+    height: 2rem;
 }
 
 .formFooter{
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .addExerciseBtn{
-    width: 10rem;
+    width: 14rem;
+    color: rgb(0, 0, 0)!important;
+    font-weight: bold!important;
+    border-color: rgb(0, 0, 0)!important;
+    background-color: rgba(0, 0, 0, 0.164)!important;
+}
+
+.addExerciseBtn svg{
+    margin-right: 1rem;
+}
+
+.addExerciseBtn:hover{
+    background-color: rgba(0, 0, 0, 0.329)!important;
 }
 
 #createWorkoutBtn{
     width: 15rem;
 }
+
+.removeTableBtn{
+    color: rgba(160, 2, 2, 0.795)!important;
+    border-color: rgba(160, 2, 2, 0.795)!important;
+}
+
+
+.tableControl{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+.textField{
+    border: 1px solid #333!important;
+}
+
+.dateTimeContainer{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+
+.css-o943dk-MuiFormLabel-root-MuiInputLabel-root{
+    /* color of the text on top of input (table)*/
+    color: white!important;
+}
+
+.css-19mk8g1-MuiInputBase-root-MuiFilledInput-root{
+    /* color of the text inside input (table)*/
+    color: white!important;
+}
+
+
+
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input{
+    /* color of text entered */
+    color: white!important;
+}
+
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root{
+    /* color of label - when empty */
+    color: var(--accent-color)!important;
+}
+
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root{
+    /* filled label color */
+    color: var(--accent-color)!important;
+}
+
+
 

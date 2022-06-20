@@ -1,13 +1,17 @@
 .navbar{
-    background-color: var(--background-color-light);
     flex: .2;
     min-width: 7rem;
     text-align: center;
     padding-top: 2rem;
+    padding-bottom: 0;
     display: flex;
     justify-content: start;
     flex-direction: column;
+    border-right: 1px solid var(--accent-color);
+    background-color: var(--background-transparent);
 }
+
+
 
 .navbar a{
     text-decoration: none;
@@ -17,7 +21,7 @@
     transition: .1s background-color ease-in-out;
 }
 .navbar li > a:hover{
-    background-color: var(--accent-color);
+    background-color: var(--accent-color-hover);
 }
 
 
@@ -32,5 +36,24 @@
 }
 
 .navbar > ul > li{
-    margin: 3rem 0;
+    margin: 1rem 0;
+}
+
+
+.navLink{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+#navSignatureContainer{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: flex-end;
+    margin-top: auto;
+    width: 100%;
+    height: fit-content;
 }

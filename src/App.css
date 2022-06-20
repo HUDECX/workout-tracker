@@ -1,7 +1,11 @@
 :root{
   --background-color: #333;
   --background-color-light: rgb(80, 80, 80);
+  --background-radiant-top-bottom: linear-gradient(to bottom, #333333, #414156, #47517d, #4162a6, #1976d2);
+  --background-radiant-middle: radial-gradient(circle, #1976d2, #4162a6, #47517d, #414156, #333333);
   --accent-color: #1976d2;
+  --accent-color-hover: #1976d21a;
+  --background-transparent: rgba(0, 0, 0, 0.623);
 }
 
 html,
@@ -19,10 +23,12 @@ body{
 body{
   padding: 0;
   margin: 0;
-  background-color: var(--background-color);
+  background-image: var(--background-radiant-top-bottom);
   font-family: "Montserrat", sans-serif;
   color: white;
 }
+
+
 
 .app{
   display: flex;

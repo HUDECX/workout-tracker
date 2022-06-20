@@ -81,7 +81,7 @@ export default function ExerciseTable({updateWorkout,id}) {
       <table class="table">
         <thead>
           <tr>
-            <th colSpan={3} scope="col" style={{border:"none"}}><TextField id="standard-basic" label="Name of your exercise" variant="standard" value={exerciseName} onChange={e => setExerciseName(e.target.value)}/></th>
+            <th colSpan={3} scope="col" style={{border:"none"}}><TextField id="standard-basic" label="Name of exercise" variant="standard" value={exerciseName} onChange={e => setExerciseName(e.target.value)}/></th>
           </tr>
           <tr>
             <th scope="col">Enter number of sets </th>
@@ -93,9 +93,9 @@ export default function ExerciseTable({updateWorkout,id}) {
           {/* loops through how many rows we should have and creates them */}
           {numberOfRows.map(row => 
             <tr>
-              <td style={{border:"none"}}><TextField value={tableData[row].numberOfSets} onChange={(e) => handleChange(e,"set",row)} sx={{maxWidth: 75}} id="standard-basic" label="Sets" variant="filled" type="number" /></td>
-              <td style={{border:"none"}}><TextField value={tableData[row].weight} onChange={(e) => handleChange(e,"weight",row)} sx={{maxWidth: 75}} id="standard-basic" label="Kg" variant="filled" type="number"/></td>
-              <td style={{border:"none"}}><TextField value={tableData[row].numberOfReps} onChange={(e) => handleChange(e,"rep",row)} sx={{maxWidth: 75}} id="standard-basic" label="Rep" variant="filled" type="number"/></td>
+              <td><TextField className='textField' value={tableData[row].numberOfSets} onChange={(e) => handleChange(e,"set",row)} sx={{maxWidth: 75}} id="standard-basic" label="Sets" variant="filled" type="number" /></td>
+              <td><TextField className='textField' value={tableData[row].weight} onChange={(e) => handleChange(e,"weight",row)} sx={{maxWidth: 75}} id="standard-basic" label="Kg" variant="filled" type="number"/></td>
+              <td><TextField className='textField' value={tableData[row].numberOfReps} onChange={(e) => handleChange(e,"rep",row)} sx={{maxWidth: 75}} id="standard-basic" label="Rep" variant="filled" type="number"/></td>
             </tr>
             )}
         </tbody>

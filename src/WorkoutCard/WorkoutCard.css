@@ -1,10 +1,10 @@
 .workouts__card{
     margin: 1rem;
-    background-color: var(--background-color-light)!important;
     filter: drop-shadow(0 0 10px black);
     color: white!important;
     max-height: 350px!important;
     border-radius: 1rem!important;
+    background-color: var(--background-transparent)!important;
 }
 
 .workouts__card ul{

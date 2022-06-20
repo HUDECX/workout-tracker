@@ -3,6 +3,7 @@
     display: flex;
     flex-flow: column;
     height: 100%;
+    padding-top: 2rem;
 }
 
 .workouts > h1{

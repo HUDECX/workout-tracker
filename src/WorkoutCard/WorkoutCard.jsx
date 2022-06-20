@@ -7,11 +7,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import InfoIcon from '@mui/icons-material/Info';
 
 import placeholderImg from "../assets/images/placesholder.jpg"
 
 
-export default function WorkoutCard({date = "none", duration = "none", id}) {
+export default function WorkoutCard({date = "none", duration = "none", muscleGroup="None", id}) {
 
   return (
     <Card className='workouts__card' sx={{ maxWidth: 345 }}>
@@ -23,7 +24,7 @@ export default function WorkoutCard({date = "none", duration = "none", id}) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Chest
+          {muscleGroup}
         </Typography>
         <Typography variant="body2" color="white">
           <ul>
@@ -33,7 +34,7 @@ export default function WorkoutCard({date = "none", duration = "none", id}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant='contained' size="small">Show me details</Button>
+        <Button variant='text' size="small"><InfoIcon /></Button>
       </CardActions>
     </Card>
   );

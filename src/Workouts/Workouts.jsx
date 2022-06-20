@@ -4,6 +4,7 @@ import db from "../firebase";
 
 import WorkoutCard from '../WorkoutCard/WorkoutCard'
 import { collection, onSnapshot } from 'firebase/firestore';
+import { orderBy } from 'firebase/firestore';
 
 
 
@@ -27,7 +28,7 @@ export default function Workouts() {
     <div className="workouts">
         <h1>My workouts</h1>
         <div className="workoutsCardsContainer">
-          {workouts.map(workout => <WorkoutCard date={workout.date} duration={workout.duration}/> )}
+          {workouts.map(workout => <WorkoutCard date={workout.date} muscleGroup={workout.muscleGroup} duration={workout.duration}/> )}
         </div>
     </div>
   )
