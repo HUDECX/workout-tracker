@@ -28,7 +28,7 @@ export default function Workouts() {
     <div className="workouts">
         <h1>My workouts</h1>
         <div className="workoutsCardsContainer">
-          {workouts.map(workout => <WorkoutCard date={workout.date} muscleGroup={workout.muscleGroup} duration={workout.duration}/> )}
+          {workouts.map(workout => <WorkoutCard firestoreData={workout}/> )}
         </div>
     </div>
   )

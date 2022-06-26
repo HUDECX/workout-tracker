@@ -42,7 +42,7 @@
 }
 
 .table td{
-    border: 1px dotted var(--accent-color);
+    border: 1px solid var(--accent-color);
 }
 
 
@@ -106,33 +106,39 @@
 }
 
 
-.css-o943dk-MuiFormLabel-root-MuiInputLabel-root{
-    /* color of the text on top of input (table)*/
-    color: white!important;
-}
 
-.css-19mk8g1-MuiInputBase-root-MuiFilledInput-root{
-    /* color of the text inside input (table)*/
+.MuiFilledInput-input.MuiInputBase-input{
+    /* input value color */
     color: white!important;
 }
 
 
-
-
-.css-1x51dt5-MuiInputBase-input-MuiInput-input{
-    /* color of text entered */
+.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink{
+    /* label for input */
     color: white!important;
 }
 
-.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root{
-    /* color of label - when empty */
-    color: var(--accent-color)!important;
+.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-outlined{
+    color: white!important;
 }
 
-.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root{
-    /* filled label color */
-    color: var(--accent-color)!important;
+.MuiOutlinedInput-notchedOutline{
+    /* border of input fields */
+    border-color: white!important
+}
+
+.MuiInput-input.MuiInputBase-input{
+    /* text color of set input fields */
+    color: white!important;
+}
+
+.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-standard{
+    /* color for input text not set */
+    color: white!important;
 }
 
 
-
+.MuiOutlinedInput-input.MuiInputBase-input{
+    /* color for data/time text */
+    color: white!important;
+}

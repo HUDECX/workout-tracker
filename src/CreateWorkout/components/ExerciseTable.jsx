@@ -81,7 +81,7 @@ export default function ExerciseTable({updateWorkout,id}) {
       <table class="table">
         <thead>
           <tr>
-            <th colSpan={3} scope="col" style={{border:"none"}}><TextField id="standard-basic" label="Name of exercise" variant="standard" value={exerciseName} onChange={e => setExerciseName(e.target.value)}/></th>
+            <th colSpan={3} scope="col" style={{border:"none"}}><TextField required id="standard-basic" label="Name of exercise" variant="standard" value={exerciseName} onChange={e => setExerciseName(e.target.value)}/></th>
           </tr>
           <tr>
             <th scope="col">Enter number of sets </th>
