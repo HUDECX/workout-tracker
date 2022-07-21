@@ -43,7 +43,7 @@ export default function CreateWorkout() {
           return ({
                 weight: row.weight,
                 id: row.rowId,
-                sets: row.numberOfSets,
+                rest: row.restTime,
                 reps: row.numberOfReps
               })
         })

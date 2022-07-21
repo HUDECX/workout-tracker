@@ -106,7 +106,7 @@ export default function WorkoutCard({firestoreData}) {
                   <thead>
                     <h4>{exercise.name}</h4>
                     <tr>
-                      <td>Sets</td>
+                      <td>Rest time(m)</td>
                       <td>Weight</td>
                       <td>Reps</td>
                     </tr>

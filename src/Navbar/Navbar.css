@@ -57,3 +57,25 @@
     width: 100%;
     height: fit-content;
 }
+
+@media only screen and (max-width: 1600px){
+    .navbar a{
+        padding: 1rem 3rem;
+    }
+
+}
+@media only screen and (max-width: 1250px){
+    .navbar a{
+        padding: 1rem 2rem;
+    }
+}
+@media only screen and (max-width: 900px){
+    .navbar a{
+        padding: 1rem 1rem;
+    }
+}
+@media only screen and (max-width: 900px){
+    .navbar{
+        flex: .3;
+    }
+}

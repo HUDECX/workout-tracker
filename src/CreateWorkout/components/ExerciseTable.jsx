@@ -11,9 +11,9 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 class tableRowData{   // table row class
-  constructor(rowId,numberOfSets,weight,numberOfReps){
+  constructor(rowId,restTime,weight,numberOfReps){
     this.rowId = rowId;
-    this.numberOfSets = numberOfSets;
+    this.restTime = restTime;
     this.weight = weight;
     this.numberOfReps = numberOfReps;
   }
@@ -50,8 +50,8 @@ export default function ExerciseTable({updateWorkout,id}) {
   function handleChange(e,type,row){    //after adding a row it sets the value that was changed
     let arr = [...tableData];
     switch (type) {     
-      case "set":
-        arr[row].numberOfSets = e.target.value;
+      case "rest":
+        arr[row].restTime = e.target.value;
         break;
       case "weight":
         arr[row].weight = e.target.value;
@@ -84,7 +84,7 @@ export default function ExerciseTable({updateWorkout,id}) {
             <th colSpan={3} scope="col" style={{border:"none"}}><TextField required id="standard-basic" label="Name of exercise" variant="standard" value={exerciseName} onChange={e => setExerciseName(e.target.value)}/></th>
           </tr>
           <tr>
-            <th scope="col">Enter number of sets </th>
+            <th scope="col">Enter your rest time</th>
             <th scope="col">Enter the weight</th>
             <th scope="col">Enter the number of reps</th>
           </tr>
@@ -93,7 +93,7 @@ export default function ExerciseTable({updateWorkout,id}) {
           {/* loops through how many rows we should have and creates them */}
           {numberOfRows.map(row => 
             <tr>
-              <td><TextField className='textField' value={tableData[row].numberOfSets} onChange={(e) => handleChange(e,"set",row)} sx={{maxWidth: 75}} id="standard-basic" label="Sets" variant="filled" type="number" /></td>
+              <td><TextField className='textField' value={tableData[row].restTime} onChange={(e) => handleChange(e,"rest",row)} sx={{maxWidth: 75}} id="standard-basic" label="Rest (m)" variant="filled" type="number" /></td>
               <td><TextField className='textField' value={tableData[row].weight} onChange={(e) => handleChange(e,"weight",row)} sx={{maxWidth: 75}} id="standard-basic" label="Kg" variant="filled" type="number"/></td>
               <td><TextField className='textField' value={tableData[row].numberOfReps} onChange={(e) => handleChange(e,"rep",row)} sx={{maxWidth: 75}} id="standard-basic" label="Rep" variant="filled" type="number"/></td>
             </tr>
